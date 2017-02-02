@@ -8,7 +8,8 @@
     "order": 1,
     "providers": [
         "Modules\\Ganalytic\\Providers\\GanalyticServiceProvider",
-        "Modules\\Ganalytic\\Providers\\RouteServiceProvider"
+        "Modules\\Ganalytic\\Providers\\RouteServiceProvider",
+        "Spatie\\Analytics\\AnalyticsServiceProvider"
     ],
     "aliases":{
 

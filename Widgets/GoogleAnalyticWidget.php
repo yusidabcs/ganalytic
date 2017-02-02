@@ -40,22 +40,34 @@ class GoogleAnalyticWidget extends BaseWidget
         $endDate = new \Carbon\Carbon('last day of this month');
 
         $period = Period::create($startDate,$endDate);
-        
-        $response = \Analytics::performQuery(
-            $period,
-            'ga:users,ga:newUsers,ga:pageviews,ga:bounceRate'
-        );
 
-        $data = collect($response['rows'] ?? [])->map(function (array $items) {
-            return [
-                'visitors' => (int) $items[0],
-                'newVisitors' => (int) $items[1],
-                'pageViews' => (int) $items[2],
-                'bounceRate' => (int) $items[3],
-            ];
-        });
+        try {
+            $response = \Analytics::performQuery(
+                $period,
+                'ga:users,ga:newUsers,ga:pageviews,ga:bounceRate'
+            );
 
-        return ['data' => $data[0]];
+            $data = collect($response['rows'] ?? [])->map(function (array $items) {
+                return [
+                    'visitors' => (int) $items[0],
+                    'newVisitors' => (int) $items[1],
+                    'pageViews' => (int) $items[2],
+                    'bounceRate' => (int) $items[3],
+                ];
+            });
+
+            return ['data' => $data[0]];
+        }
+        catch (\Exception $e){
+            return ['data' => [
+                'visitors' => (int) 0,
+                'newVisitors' => (int) 0,
+                'pageViews' => (int) 0,
+                'bounceRate' => (int) 0,
+            ]];
+        }
+
+
     }
      /**
      * Get the widget type
