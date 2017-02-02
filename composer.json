@@ -1,0 +1,39 @@
+{
+  "name": "bcscoder/ganalytic",
+  "description": "",
+  "type": "asgard-module",
+  "require": {
+    "php": ">=5.4",
+    "composer/installers": "~1.0",
+    "asgardcms/core-module": "~1.0",
+    "spatie/laravel-analytics": "~2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "orchestra/testbench": "~3.1"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Modules\\Ganalytic\\": ".",
+      "Modules\\": "Modules/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Pingpong Labs",
+      "email": "pingpong.labs@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Ganalytic\\": ""
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan vendor:publish --provider=\"Spatie\\Analytics\\AnalyticsServiceProvider\"",
+    ]
+  }
+}
