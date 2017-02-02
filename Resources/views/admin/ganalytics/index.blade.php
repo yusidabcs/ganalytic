@@ -2,7 +2,7 @@
 
 @section('content-header')
     <h1>
-        {{ trans('contact::contacts.title.contacts') }}
+        {{ trans('ganalytic::ganalytics.title.ganalytics') }}
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
@@ -100,13 +100,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class='form-group{{ $errors->has('view_id') ? ' has-error' : '' }}'>
-                            {!! Form::label('view_id', trans('ganalytic::ganalytics.form.view id')) !!}
+                            {!! Form::label('view_id', trans('ganalytic::ganalytics.form.view_id')) !!}
                             {!! Form::text('view_id', config("laravel-analytics.view_id"), ['class' => 'form-control', 'placeholder' => trans('ganalytic::ganalytics.form.view id')]) !!}
 
                             {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
                         </div>
                         <div class='form-group{{ $errors->has('service_account_credentials_json') ? ' has-error' : '' }}'>
-                            {!! Form::label('service_account_credentials_json', trans('ganalytic::ganalytics.form.json_fil.e')) !!}
+                            {!! Form::label('service_account_credentials_json', trans('ganalytic::ganalytics.form.json_file')) !!}
                             {!! Form::file('service_account_credentials_json', Input::old('service_account_credentials_json'), ['class' => 'form-control', 'placeholder' => trans('ganalytic::ganalytics.form.json_file')]) !!}
                             <input type="text" class="form-control" readonly value="{{config("laravel-analytics.service_account_credentials_json")}}">
                             {!! $errors->first('service_account_credentials_json', '<span class="help-block">:message</span>') !!}
