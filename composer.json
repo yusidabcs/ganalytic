@@ -33,7 +33,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "php artisan vendor:publish --provider=\"Spatie\\Analytics\\AnalyticsServiceProvider\"",
+      "php artisan vendor:publish --provider=\"Spatie\\Analytics\\AnalyticsServiceProvider\""
     ]
   }
 }
